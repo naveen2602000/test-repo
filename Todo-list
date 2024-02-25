@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>White Box</title>
+<style>
+    body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Changed height to min-height for better responsiveness */
+    background-color: rgb(214, 105, 105);
+    font-size: 16px; /* Set a default font size for better consistency */
+    font-family: Arial, sans-serif; /* Added a fallback font family */
+}
+
+.buttonIn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #edeef0;
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 14px; /* Corrected property name */
+}
+
+button {
+    border: none;
+    outline: none;
+    padding: 16px 50px;
+    background: #ff5945;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px;
+}
+
+::placeholder {
+    padding: 5px;
+}
+
+.container {
+    padding-bottom: 280px;
+}
+
+ul {
+    padding: 0; /* Remove default padding for the ul */
+}
+
+ul li {
+    list-style: none;
+    font-size: 17px;
+    padding: 12px 8px 12px 50px;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+}
+
+ul li::before {
+    content: '';
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-image: url("unchecked.png");
+    background-size: cover;
+    background-position: center;
+    top: 12px;
+    left: 8px;
+}
+ul li.checked{
+    color:rgb(210, 198, 198);
+    text-decoration:line-through;
+    
+}
+ul li.checked::before{
+    background-image: url("checked.png");
+}
+.whitebox {
+    width: 600px;
+    max-width: 90%; /* Changed width to max-width for better responsiveness */
+    height: 350px;
+    margin-top: 20px; /* Added margin-top for spacing */
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 40px 20px 20px 50px;
+    box-sizing: border-box; /* Include padding in the width calculation */
+}
+</style>
+</head>
+<body>
+    <div class="container">
+    <div class="whitebox"> 
+    <!-- Content inside the white box -->
+        <h2>Todo-list</h2>
+        <div class="buttonIn">
+        <input type="text" name="ADD YOUR TASK" id="input-box" placeholder="ADD YOUR TASK" class="space">
+        <button onclick="addTask()"> add </button>
+
+        </div>
+        <ul id="list-Container">
+            
+           <!-- <li class="checked">task 1</li>
+            <li>task 2</i>
+            <li>task 3</li>--->
+        
+        </ul>
+    </div>
+    </div>
+    <script>
+        const inputBox=document.getElementById('input-box')
+const listContainer=document.getElementById('list-Container')
+function addTask(){
+  if (inputBox.value === ''){
+    alert("fill up something");
+  }
+  else{
+    let li=document.createElement("li")
+    li.innerHTML=inputBox.value ;
+    listContainer.appendChild(li);
+
+  }
+  inputBox.value == ""
+
+}
+    </script>
+</body>
+</html>
